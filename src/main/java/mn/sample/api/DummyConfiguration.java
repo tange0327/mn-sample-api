@@ -6,12 +6,12 @@ import io.micronaut.context.annotation.Requires;
 import java.util.HashMap;
 import java.util.Map;
 
-@ConfigurationProperties(BintrayConfiguration.PREFIX)
-@Requires(property = BintrayConfiguration.PREFIX)
-public class BintrayConfiguration {
+@ConfigurationProperties(DummyConfiguration.PREFIX)
+@Requires(property = DummyConfiguration.PREFIX)
+public class DummyConfiguration {
 
     public static final String PREFIX = "bintray";
-    public static final String BINTRAY_API_URL = "https://bintray.com";
+    public static final String DUMMY_API_URL = "http://dummy.restapiexample.com";
     
     private String apiversion;
 

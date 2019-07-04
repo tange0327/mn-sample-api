@@ -14,25 +14,30 @@ import io.micronaut.http.client.annotation.Client;
 import io.reactivex.Maybe;
 import mn.sample.api.BintrayLowLevelClient;
 import mn.sample.api.BintrayPackage;
+import mn.sample.api.DummyLowLevelClient;
 import mn.sample.api.domain.HelloService;
 
 @Controller("/hello")
 public class HelloController {
 	
-//	@Client("http:/dummy.restapiexample.com/api")
-	
 	 HelloService helloService;
 	 BintrayLowLevelClient bintrayLowLevelClient;
+	 DummyLowLevelClient dummyLowLevelClient;
 
-    HelloController(HelloService helloService, BintrayLowLevelClient bintrayLowLevelClient) {
+    HelloController(HelloService helloService, BintrayLowLevelClient bintrayLowLevelClient, DummyLowLevelClient dummyLowLevelClient) {
         this.helloService = helloService;
         this.bintrayLowLevelClient = bintrayLowLevelClient;
+        this.dummyLowLevelClient = dummyLowLevelClient;
     }
 	
-    @Get(value = "/", produces = MediaType.TEXT_PLAIN)
+    @Get(value = "/bintray", produces = MediaType.TEXT_PLAIN)
     public Maybe<List<BintrayPackage>> pindexackagesWithLowLevelClient() {
-//        return bintrayLowLevelClient.toBlocking().retrieve("/v1/employees/");
         return bintrayLowLevelClient.fetchPackages();
+    }
+    
+    @Get(value = "/dummy", produces = MediaType.APPLICATION_JSON)
+    public Maybe<List<BintrayPackage>> packagesWithLowLevelClient() {
+        return dummyLowLevelClient.fetchPackages();
     }
     
     @Get(uri = "/compute/{number}",processes = MediaType.TEXT_PLAIN)
