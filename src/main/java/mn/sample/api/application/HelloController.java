@@ -20,20 +20,17 @@ import mn.sample.api.domain.HelloService;
 public class HelloController {
 	
 //	@Client("http:/dummy.restapiexample.com/api")
-//	
-//	@Inject RxHttpClient httpClient;
-	BintrayLowLevelClient bintrayLowLevelClient;
 	
-    HelloService helloService;
+	 HelloService helloService;
+	 BintrayLowLevelClient bintrayLowLevelClient;
 
     HelloController(HelloService helloService, BintrayLowLevelClient bintrayLowLevelClient) {
         this.helloService = helloService;
         this.bintrayLowLevelClient = bintrayLowLevelClient;
     }
 	
-    @Get(produces = MediaType.TEXT_PLAIN)
-    public Maybe<List<BintrayPackage>> index() {
-//        return "hello world!!";
+    @Get(value = "/", produces = MediaType.TEXT_PLAIN)
+    public Maybe<List<BintrayPackage>> pindexackagesWithLowLevelClient() {
 //        return bintrayLowLevelClient.toBlocking().retrieve("/v1/employees/");
         return bintrayLowLevelClient.fetchPackages();
     }
@@ -45,7 +42,7 @@ public class HelloController {
 
 //    @Get(uri = "/http",processes = MediaType.TEXT_PLAIN)
 //    public Maybe<String> hello() { 
-//        return bintrayLowLevelClient.retrieve(GET("/v1/employees/") )
+//        return httpClient.retrieve(GET("/v1/employees/") )
 //                         .firstElement(); 
 //    }
 

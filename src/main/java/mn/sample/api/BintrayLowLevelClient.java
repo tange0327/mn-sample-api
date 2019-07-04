@@ -14,14 +14,13 @@ import java.util.List;
 @Singleton 
 public class BintrayLowLevelClient {
 
-
     private final RxHttpClient httpClient;
     private final String uri;
 
     public BintrayLowLevelClient(@Client(BintrayConfiguration.BINTRAY_API_URL) RxHttpClient httpClient,  
                                  BintrayConfiguration configuration) {  
         this.httpClient = httpClient;
-        String path = "http:/dummy.restapiexample.com/api/v1/employee";
+        String path = "/api/{apiversion}/repos/{organization}/{repository}/packages";
         uri = UriTemplate.of(path).expand(configuration.toMap());
     }
 

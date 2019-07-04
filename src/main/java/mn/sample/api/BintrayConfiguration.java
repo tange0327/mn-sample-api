@@ -12,7 +12,8 @@ public class BintrayConfiguration {
 
     public static final String PREFIX = "bintray";
     public static final String BINTRAY_API_URL = "https://bintray.com";
-
+    public static final String DUMMY_API_URL = "http:/dummy.restapiexample.com";
+    
     private String apiversion;
 
     private String organization;
