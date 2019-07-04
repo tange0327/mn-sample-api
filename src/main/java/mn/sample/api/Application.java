@@ -1,4 +1,4 @@
-package mn.sample.api.application;
+package mn.sample.api;
 
 import io.micronaut.runtime.Micronaut;
 
