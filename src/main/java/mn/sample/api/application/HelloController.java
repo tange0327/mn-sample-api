@@ -1,16 +1,10 @@
 package mn.sample.api.application;
 
-import static io.micronaut.http.HttpRequest.GET;
-
 import java.util.List;
-
-import javax.inject.Inject;
 
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import io.micronaut.http.client.RxHttpClient;
-import io.micronaut.http.client.annotation.Client;
 import io.reactivex.Maybe;
 import mn.sample.api.BintrayLowLevelClient;
 import mn.sample.api.BintrayPackage;

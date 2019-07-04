@@ -2,16 +2,19 @@ package mn.sample.api;
 
 import io.micronaut.context.annotation.ConfigurationProperties;
 import io.micronaut.context.annotation.Requires;
+import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @ConfigurationProperties(DummyConfiguration.PREFIX)
 @Requires(property = DummyConfiguration.PREFIX)
+@Data
 public class DummyConfiguration {
 
-    public static final String PREFIX = "bintray";
-    public static final String DUMMY_API_URL = "http://dummy.restapiexample.com";
+    public static final String PREFIX = "dummy";
+//    public static final String DUMMY_API_URL = "http://dummy.restapiexample.com";
+
     
     private String apiversion;
 
@@ -22,46 +25,12 @@ public class DummyConfiguration {
     private String username;
 
     private String token;
-
-    public String getApiversion() {
-        return apiversion;
-    }
-
-    public void setApiversion(String apiversion) {
-        this.apiversion = apiversion;
-    }
-
-    public String getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(String organization) {
-        this.organization = organization;
-    }
-
-    public String getRepository() {
-        return repository;
-    }
-
-    public void setRepository(String repository) {
-        this.repository = repository;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
+    
+    private String hostname;
+    
+    private String port;
+    
+    
 
     public Map<String, Object> toMap() {
         Map<String, Object> m = new HashMap<>();
@@ -70,6 +39,8 @@ public class DummyConfiguration {
         m.put("repository", getRepository());
         m.put("username", getUsername());
         m.put("token", getToken());
+        m.put("hostname", getHostname());
+        m.put("port", getPort());
         return m;
     }
 }

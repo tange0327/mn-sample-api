@@ -6,4 +6,10 @@ bintray:
     organization: micronaut
     repository: profiles
     apiversion: v1
+
+dummy:
+    hostname: http://localhost
+    port: 32769
+
+
  
