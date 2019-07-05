@@ -9,7 +9,7 @@ bintray:
 
 dummy:
     hostname: http://localhost
-    port: 18080
+    port: 32769
 
 
  
